@@ -1,0 +1,3 @@
+CREATE USER user_telegraf WITH PASSWORD 'password' WITH ALL PRIVILEGES;
+CREATE USER admin WITH PASSWORD 'password' WITH ALL PRIVILEGES;
+grant ALL on telegraf to user_telegraf

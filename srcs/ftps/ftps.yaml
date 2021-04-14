@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+spec:
+  selector:
+    matchLabels:
+      app: ftps
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - name: ftps
+        image: ftps
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 20
+          name: port20
+        - containerPort: 21
+          name: port21
+        - containerPort: 21004
+          name: port21004
+        - containerPort: 21005
+          name: port21005
+        - containerPort: 21006
+          name: port21006
+        - containerPort: 21007
+          name: port21007
+        - containerPort: 21008
+          name: port21008
+        - containerPort: 21009
+          name: port21009
+        - containerPort: 21010
+          name: port21010
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+  annotations:
+          metallb.universe.tf/allow-shared-ip: shared
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 172.17.0.2
+  ports:
+    - port: 20
+      name: port20
+      protocol: TCP
+    - port: 21
+      name: port21
+      protocol: TCP
+    - port: 21004
+      name: port21004
+      protocol: TCP
+    - port: 21005
+      name: port21005
+      protocol: TCP
+    - port: 21006
+      name: port21006
+      protocol: TCP
+    - port: 21007
+      name: port21007
+      protocol: TCP
+    - port: 21008
+      name: port21008
+      protocol: TCP
+    - port: 21009
+      name: port21009
+      protocol: TCP
+    - port: 21010
+      name: port21010
+      protocol: TCP
+  selector:
+    app: ftps
