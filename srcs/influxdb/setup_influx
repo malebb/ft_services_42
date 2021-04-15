@@ -1,3 +1,2 @@
-create database telegraf;
 CREATE USER user_telegraf WITH PASSWORD 'password';
 grant ALL on telegraf to user_telegraf

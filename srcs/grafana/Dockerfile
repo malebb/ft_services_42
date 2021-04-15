@@ -20,4 +20,4 @@ COPY setup_influx /home/
 
 COPY telegraf.conf /etc/telegraf.conf
 
-CMD rc-service influxdb start ; rc-service telegraf start ; sleep 5 ; cat / sh
+CMD rc-service influxdb start ; rc-service telegraf start ; cd /grafana/ ; ./bin/grafana-server

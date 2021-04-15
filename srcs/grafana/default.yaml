@@ -6,7 +6,16 @@ datasources:
     access: proxy
     orgId: 1
     uid: my_unique_uid
-    url: http://localhost:8086
+    url: http://influxdb:8086
     password: password
     user: user_telegraf
     database: telegraf
+  - name: influxdb-grafana
+    type: influxdb
+    access: proxy
+    orgId: 1
+    uid: my_unique_uid_2
+    url: http://influxdb:8086
+    password: password
+    user: user_telegraf
+    database: grafana

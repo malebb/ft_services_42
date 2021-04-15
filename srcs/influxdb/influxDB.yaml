@@ -1,57 +1,61 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: influxDB
+  name: influxdb
   labels:
-    app: influxDB
+    app: influxdb
 spec:
   ports:
     - port: 8086
   selector:
-    app: influxDB
+    app: influxdb
   clusterIP: None
+
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: influxDB-pv-claim
+  name: influxdb-pv-claim
   labels:
-    app: influxDB
+    app: influxdb
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 500Mi
+
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: influxDB
+  name: influxdb
   labels:
-    app: influxDB
+    app: influxdb
 spec:
   selector:
     matchLabels:
-      app: influxDB
+      app: influxdb
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: influxDB
+        app: influxdb
     spec:
       containers:
-      - image: influxDB
+      - image: influxdb
         imagePullPolicy: Never
-        name: influxDB
+        name: influxdb
         ports:
         - containerPort: 8086
-          name: influxDB
+          name: influxdb
         volumeMounts:
-        - name: influxDB-persistent-storage
+        - name: influxdb-persistent-storage
           mountPath: /var/lib/influx
       volumes:
-      - name: influxDB-persistent-storage
+      - name: influxdb-persistent-storage
         persistentVolumeClaim:
-          claimName: influxDB-pv-claim
+          claimName: influxdb-pv-claim
