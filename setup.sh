@@ -32,3 +32,7 @@ kubectl apply -f ./srcs/wordpress_mysql/wordpress-deployment.yaml
 docker build -t phpmyadmin ./srcs/phpmyadmin/
 kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml
 
+#setup grafana
+
+#docker build -t grafana ./srcs/grafana/
+#kubectl apply -f ./srcs/grafana/grafana.yaml
