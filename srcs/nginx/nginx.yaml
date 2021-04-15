@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx
 spec:
   selector:
     matchLabels:
-      app: my-nginx
+      app: nginx
   replicas: 1
   template:
     metadata:
       labels:
-        app: my-nginx
+        app: nginx
     spec:
       containers:
-      - name: nginx-container
+      - name: nginx
         image: nginx
         imagePullPolicy: Never
         ports:
@@ -27,9 +27,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-nginx
+  name: nginx
   labels:
-    app: my-nginx
+    app: nginx
   annotations:
           metallb.universe.tf/allow-shared-ip: shared
 spec:
@@ -43,4 +43,4 @@ spec:
     port: 443
     protocol: TCP
   selector:
-    app: my-nginx
+    app: nginx

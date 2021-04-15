@@ -12,20 +12,20 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 kubectl create -f ./srcs/load_balancer/metallb.yaml
 
 #setup mysql 
-docker build -t mysql ./srcs/wordpress_mysql/mysql/
-kubectl apply -f ./srcs/wordpress_mysql/mysql-deployment.yaml
+docker build -t mysql ./srcs/mysql/
+kubectl apply -f ./srcs/mysql/mysql.yaml
 
 #setup nginx
 docker build -t nginx ./srcs/nginx/
-kubectl apply -f ./srcs/nginx/nginx_conf.yaml
+kubectl apply -f ./srcs/nginx/nginx.yaml
 
 #setup ftps
 docker build -t ftps ./srcs/ftps/
 kubectl apply -f ./srcs/ftps/ftps.yaml
 
 #setup wordpress
-docker build -t wordpress ./srcs/wordpress_mysql/wordpress/
-kubectl apply -f ./srcs/wordpress_mysql/wordpress-deployment.yaml
+docker build -t wordpress ./srcs/wordpress/
+kubectl apply -f ./srcs/wordpress/wordpress.yaml
 
 #setup phpmyadmin
 
