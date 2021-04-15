@@ -15,6 +15,10 @@ kubectl create -f ./srcs/load_balancer/metallb.yaml
 docker build -t mysql ./srcs/mysql/
 kubectl apply -f ./srcs/mysql/mysql.yaml
 
+#setup influxDB
+docker build -t influxdb ./srcs/influxdb/
+kubectl apply -f ./srcs/influxdb/influxdb.yaml
+
 #setup nginx
 docker build -t nginx ./srcs/nginx/
 kubectl apply -f ./srcs/nginx/nginx.yaml
@@ -34,5 +38,5 @@ kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml
 
 #setup grafana
 
-#docker build -t grafana ./srcs/grafana/
-#kubectl apply -f ./srcs/grafana/grafana.yaml
+docker build -t grafana ./srcs/grafana/
+kubectl apply -f ./srcs/grafana/grafana.yaml

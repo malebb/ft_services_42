@@ -19,3 +19,48 @@ datasources:
     password: password
     user: user_telegraf
     database: grafana
+  - name: influxdb-nginx
+    type: influxdb
+    access: proxy
+    orgId: 1
+    uid: my_unique_uid_3
+    url: http://influxdb:8086
+    password: password
+    user: user_telegraf
+    database: nginx
+  - name: influxdb-mysql
+    type: influxdb
+    access: proxy
+    orgId: 1
+    uid: my_unique_uid_4
+    url: http://influxdb:8086
+    password: password
+    user: user_telegraf
+    database: mysql
+  - name: influxdb-phpmyadmin
+    type: influxdb
+    access: proxy
+    orgId: 1
+    uid: my_unique_uid_5
+    url: http://influxdb:8086
+    password: password
+    user: user_telegraf
+    database: phpmyadmin
+  - name: influxdb-wordpress
+    type: influxdb
+    access: proxy
+    orgId: 1
+    uid: my_unique_uid_6
+    url: http://influxdb:8086
+    password: password
+    user: user_telegraf
+    database: wordpress
+  - name: influxdb-ftps
+    type: influxdb
+    access: proxy
+    orgId: 1
+    uid: my_unique_uid_7
+    url: http://influxdb:8086
+    password: password
+    user: user_telegraf
+    database: ftps
