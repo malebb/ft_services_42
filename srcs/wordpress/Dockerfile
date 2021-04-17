@@ -2,13 +2,11 @@ FROM alpine:latest
 
 EXPOSE 80
 
-RUN apk update ; apk add nginx ; adduser -g 'Nginx www user' -h /home/www/ wwwmlebrun -D
+RUN apk add nginx ; adduser -g 'Nginx www user' -h /home/www/ wwwmlebrun -D
 
 RUN apk add openrc ; openrc ; touch /run/openrc/softlevel
 
 COPY localhost.conf /etc/nginx/conf.d/localhost.conf
-
-COPY interfaces /etc/network/
 
 RUN mkdir -p /run/nginx
 

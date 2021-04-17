@@ -19,6 +19,10 @@ kubectl apply -f ./srcs/mysql/mysql.yaml
 docker build -t influxdb ./srcs/influxdb/
 kubectl apply -f ./srcs/influxdb/influxdb.yaml
 
+#setup telegraf
+docker build -t telegraf ./srcs/telegraf/
+kubectl apply -f ./srcs/telegraf/telegraf.yaml
+
 #setup nginx
 docker build -t nginx ./srcs/nginx/
 kubectl apply -f ./srcs/nginx/nginx.yaml
@@ -40,3 +44,5 @@ kubectl apply -f ./srcs/phpmyadmin/phpmyadmin.yaml
 
 docker build -t grafana ./srcs/grafana/
 kubectl apply -f ./srcs/grafana/grafana.yaml
+
+minikube dashboard

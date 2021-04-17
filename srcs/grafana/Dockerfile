@@ -8,16 +8,14 @@ COPY default.yaml /grafana/conf/provisioning/datasources/
 
 COPY dashboard_provider.yaml /grafana/conf/provisioning/dashboards/
 
-COPY grafana.json /grafana/conf/provisioning/dashboards/
-
-RUN apk add influxdb
-
-RUN apk add telegraf
+COPY dashboards/nginx.json /grafana/conf/provisioning/dashboards/
+COPY dashboards/mysql.json /grafana/conf/provisioning/dashboards/
+COPY dashboards/ftps.json /grafana/conf/provisioning/dashboards/
+COPY dashboards/influxdb.json /grafana/conf/provisioning/dashboards/
+COPY dashboards/grafana.json /grafana/conf/provisioning/dashboards/
+COPY dashboards/phpmyadmin.json /grafana/conf/provisioning/dashboards/
+COPY dashboards/wordpress.json /grafana/conf/provisioning/dashboards/
 
 RUN apk add openrc ; openrc ; touch /run/openrc/softlevel
 
-COPY setup_influx /home/
-
-COPY telegraf.conf /etc/telegraf.conf
-
-CMD rc-service influxdb start ; rc-service telegraf start ; cd /grafana/ ; ./bin/grafana-server
+CMD cd /grafana/ ; ./bin/grafana-server
