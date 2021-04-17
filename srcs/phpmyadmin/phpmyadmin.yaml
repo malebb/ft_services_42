@@ -15,7 +15,7 @@ spec:
         app: phpmyadmin
     spec:
       containers:
-        - name: phpmyadmin-container
+        - name: phpmyadmin
           image: phpmyadmin
           imagePullPolicy: Never
           ports:

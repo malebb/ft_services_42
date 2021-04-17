@@ -13,7 +13,7 @@ spec:
         app: grafana
     spec:
       containers:
-      - name: grafana-container
+      - name: grafana
         image: grafana
         imagePullPolicy: Never
         ports:

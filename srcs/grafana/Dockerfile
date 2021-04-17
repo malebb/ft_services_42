@@ -15,6 +15,7 @@ COPY dashboards/influxdb.json /grafana/conf/provisioning/dashboards/
 COPY dashboards/grafana.json /grafana/conf/provisioning/dashboards/
 COPY dashboards/phpmyadmin.json /grafana/conf/provisioning/dashboards/
 COPY dashboards/wordpress.json /grafana/conf/provisioning/dashboards/
+COPY dashboards/telegraf.json /grafana/conf/provisioning/dashboards/
 
 RUN apk add openrc ; openrc ; touch /run/openrc/softlevel
 

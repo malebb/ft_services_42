@@ -13,7 +13,7 @@ spec:
         app: ftps
     spec:
       containers:
-      - name: ftps-container
+      - name: ftps
         image: ftps
         imagePullPolicy: Never
         ports:
