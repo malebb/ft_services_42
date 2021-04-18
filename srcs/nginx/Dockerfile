@@ -17,4 +17,4 @@ RUN mkdir -p /run/nginx
 
 RUN rm /etc/nginx/conf.d/default.conf
 
-CMD rc-service nginx start ; sleep infinity
+CMD nginx -g 'daemon off;'

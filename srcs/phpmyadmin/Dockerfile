@@ -20,6 +20,6 @@ RUN mkdir -p /usr/share/webapps ; cd /usr/share/webapps ; wget http://files.dire
 
 COPY config.inc.php /usr/share/webapps/phpmyadmin/config.inc.php
 
-RUN apk add mariadb mariadb-common mariadb-client ; /etc/init.d/mariadb setup
+RUN apk add mariadb-client 
 
-CMD rc-service nginx start ; rc-service mariadb start ; rc-service php-fpm7 start ; sleep infinity
+CMD rc-service php-fpm7 start ; nginx -g 'daemon off;'

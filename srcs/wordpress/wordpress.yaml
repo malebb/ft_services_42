@@ -43,3 +43,11 @@ spec:
         ports:
         - containerPort: 5050
           name: wordpress
+        livenessProbe:
+          exec:
+            command:
+            - rc-service
+            - php-fpm7
+            - status
+          initialDelaySeconds: 5
+          periodSeconds: 5

@@ -22,7 +22,6 @@ COPY init_wp.sh /home/
 
 RUN apk add curl ; cd /opt/ ; curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar ; apk add php-phar ; chmod +x /opt/wp-cli.phar ; mv /opt/wp-cli.phar /usr/local/bin/wp
 
-RUN  apk add mariadb mariadb-common mariadb-client ; /etc/init.d/mariadb setup
+RUN  apk add mariadb-client
 
-COPY services_return.sh /home/
-CMD rc-service php-fpm7 start ; rc-service nginx start ; rc-service mariadb start ; /home/init_wp.sh ; sleep infinity
+CMD rc-service php-fpm7 start ; /home/init_wp.sh ; nginx -g 'daemon off;' 
