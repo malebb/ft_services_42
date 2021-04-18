@@ -24,4 +24,5 @@ RUN apk add curl ; cd /opt/ ; curl -O https://raw.githubusercontent.com/wp-cli/b
 
 RUN  apk add mariadb mariadb-common mariadb-client ; /etc/init.d/mariadb setup
 
+COPY services_return.sh /home/
 CMD rc-service php-fpm7 start ; rc-service nginx start ; rc-service mariadb start ; /home/init_wp.sh ; sleep infinity

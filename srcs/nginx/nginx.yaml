@@ -21,6 +21,14 @@ spec:
           name: http
         - containerPort: 443
           name: https
+        livenessProbe:
+          exec:
+            command:
+            - rc-service
+            - nginx
+            - status
+          initialDelaySeconds: 5
+          periodSeconds: 5
 
 ---
 
