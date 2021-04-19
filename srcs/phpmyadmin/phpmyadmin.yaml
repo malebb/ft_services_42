@@ -20,14 +20,14 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
-        livenessProbe:
-          exec:
-            command:
-            - rc-service
-            - php-fpm7
-            - status
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          livenessProbe:
+            exec:
+              command:
+              - rc-service
+              - php-fpm7
+              - status
+            initialDelaySeconds: 5
+            periodSeconds: 5
 
 ---
 
