@@ -55,6 +55,14 @@ spec:
         volumeMounts:
         - name: influxdb-persistent-storage
           mountPath: /var/lib/influxdb
+        livenessProbe:
+          exec:
+            command:
+            - influx
+            - -execute
+            - 'show databases'
+          initialDelaySeconds: 5
+          periodSeconds: 5
       volumes:
       - name: influxdb-persistent-storage
         persistentVolumeClaim:
