@@ -12,5 +12,6 @@ COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 
 RUN apk add openssl ; openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=FR/ST=France/L=Paris/O=42/OU=42/CN=ft_services" -keyout /etc/ssl/private/ssl.key -out /etc/ssl/private/ssl.crt
 
-CMD rc-service vsftpd start ; sleep infinity
-#CMD vsftpd /etc/vsftpd/vsftpd.conf
+COPY start_vsftpd.sh /home/
+
+CMD /home/start_vsftpd.sh
